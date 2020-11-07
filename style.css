@@ -35,6 +35,8 @@
   outline: none;
   cursor: pointer;
   font-weight: 300;
+  background-color: #1b98e0;
+  color: white;
 }
 .todos-container {
   margin: 0 15px;
@@ -51,12 +53,46 @@
   cursor: pointer;
   font-weight: 300;
   outline: none;
+  color: #1b98e0;
 }
 /* Article */
 article {
   border: 1px solid rgba(0, 0, 0, 0.2);
   height: 330px;
   margin: 15px 15px;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  margin-bottom: 1px;
+}
+section h1 {
+  font-size: 20px;
+  font-weight: 300;
+  padding: 15px;
+}
+.buttons {
+  width: 25%;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+section button {
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 0;
+}
+.btn-done {
+  color: #84dccf;
+}
+.btn-delete {
+  color: #ef626c;
 }
 /* Footer */
 footer {
