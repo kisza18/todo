@@ -12,8 +12,8 @@
         <!-- Header: Add new todo -->
         <header>
             <div class="add-new-todo">
-                <input type="text" placeholder="new todo...">
-                <button type="button">add</button>
+                <input class="input" type="text" placeholder="new todo...">
+                <button class="addBtn" type="button">add</button>
             </div>
             <div class="todos-container">
                 <button type="button">All</button>
@@ -22,20 +22,21 @@
             </div>
         </header>
         <!-- Article: List of todos -->
-        <article>
+        <article class="article">
             <!-- Section: todo -->
-            <section>
-                <h1>todo item</h1>
+            <!-- <section class="section">
+                <h1 class="section-h1">todo item</h1>
                 <div class="buttons">
                     <button class="btn-done" type="button">done</button>
                     <button class="btn-delete" type="button">delete</button>
                 </div>
-            </section>
+            </section> -->
         </article>
         <footer>
-            <h1><span>3</span>items left</h1>
-            <button type="button">clear all</button>
+            <h1><span class="todo-counter">3</span>items left</h1>
+            <button class="btn-deleteAll" type="button">clear all</button>
         </footer>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
