@@ -1,3 +1,7 @@
+window.onload = function(){
+    todoCount();
+}
+
 const input = document.querySelector('.input');
 const addBtn = document.querySelector('.addBtn');
 const article = document.querySelector('.article');
@@ -6,8 +10,18 @@ const doneBtn = document.querySelector('.btn-done');
 const deleteBtn = document.querySelector('.btn-delete');
 const deleteAll = document.querySelector('.btn-deleteAll');
 
+//todos counter
 let todoCounter = document.querySelector('.todo-counter');
-todoCounter.innerHTML = article.children.length;
+
+let todoCount = function(){
+    let count = 0;
+    for(let i = 0; i < article.children.length; i++){
+        if(article.children[i].className === "section"){
+            count++;
+        }
+    }
+    todoCounter.innerHTML = count;
+}
 
 //create new todo
 addBtn.addEventListener('click', function(){
@@ -30,17 +44,17 @@ addBtn.addEventListener('click', function(){
     todo.appendChild(div);
     article.appendChild(todo);
     input.value = "";
-    todoCounter.innerHTML = article.children.length;
+    todoCount();
 
     doBtn.onclick = function(){
         if(this.parentElement.parentElement.className === "section"){
             this.parentElement.parentElement.className += " doneTodo"
+            todoCount();
         }
-        todoCounter.innerHTML = article.children.length;
     }
     delBtn.onclick = function(){
         this.parentElement.parentElement.remove();
-        todoCounter.innerHTML = article.children.length;
+        todoCount();
     }
 });
 
