@@ -38,6 +38,10 @@
   background-color: #1b98e0;
   color: white;
 }
+.addBtn:hover {
+  background-color: #3ab7ff;
+  transition: 0.3s;
+}
 .todos-container {
   margin: 0 15px;
   padding: 10px;
@@ -111,12 +115,18 @@ footer {
   bottom: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-footer h1 {
+.todo-counter-container {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.todo-counter-h1 {
   font-size: 13px;
   font-weight: 300;
-  margin: 0 10px;
 }
-footer span {
+.todo-counter {
+  font-size: 13px;
+  font-weight: 300;
   margin-right: 5px;
 }
 footer button {
