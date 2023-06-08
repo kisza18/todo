@@ -1,0 +1,51 @@
+.todolist {
+  min-height: 600px;
+  height: 100%;
+  padding: 50px 50px;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header > h3 {
+  font-weight: 500;
+}
+.controllers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.controllers > select {
+  color: black;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.151);
+  cursor: pointer;
+  width: 130px;
+  padding: 8px;
+}
+.controllers > select > option {
+  padding: 10px;
+}
+.controllers > button {
+  color: black;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.151);
+  cursor: pointer;
+  width: 130px;
+  padding: 8px;
+}
+.list {
+  margin-top: 20px;
+  position: relative;
+}
+@media (max-width: 820px) {
+  .todolist {
+    padding: 50px 30px;
+  }
+}

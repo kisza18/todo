@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  height: 80px;
+  gap: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.205);
+  background-color: white;
+}
+.navbar > img {
+  width: 40px;
+}
+.navbar > h1 {
+  font-size: 25px;
+  color: var(--primary);
+}
