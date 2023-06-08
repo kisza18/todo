@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 import { useTodoContext } from "../providers/TodoProvider";
 
 const TodoList = () => {
-  const { todos, deleteTodo } = useTodoContext();
+  const { todos, deleteTodo, doneTodo, deleteAll } = useTodoContext();
 
   return (
     <div className={classes.todolist}>
@@ -17,15 +17,17 @@ const TodoList = () => {
           <option value="All">All task</option>
           <option value="Done">Done task</option>
         </select>
-        <button>Clear All</button>
+        <button onClick={() => deleteAll()}>Clear All</button>
       </div>
       <div className={classes.list}>
         {todos.map((todo, index) => (
           <TodoItem
             deleteHandler={() => deleteTodo(index)}
+            doneHandler={() => doneTodo(index)}
             key={index}
             title={todo.title}
             content={todo.content}
+            complete={todo.completed}
           />
         ))}
       </div>

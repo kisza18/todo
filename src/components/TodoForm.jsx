@@ -2,12 +2,12 @@ import classes from "./TodoForm.module.css";
 import addTaskImage from "../assets/images/add-task.svg";
 import { useTodoContext } from "../providers/TodoProvider";
 import { useState } from "react";
-import TodoItem from "./TodoItem";
 
 const TodoForm = () => {
   const { addTodo } = useTodoContext();
   const [todoTitle, setTodoTitle] = useState("");
   const [todoContent, setTodoContent] = useState("");
+  const todoComplete = false;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -18,6 +18,7 @@ const TodoForm = () => {
     addTodo({
       title: todoTitle,
       content: todoContent,
+      completed: todoComplete,
     });
     setTodoTitle("");
     setTodoContent("");
@@ -32,19 +33,21 @@ const TodoForm = () => {
         </div>
         <form onSubmit={submitHandler} className={classes.controller}>
           <div>
-            <p>0/50</p>
+            <p>{todoTitle.length}/30</p>
             <input
               type="text"
+              maxLength="30"
               placeholder="your task topic"
               value={todoTitle}
               onChange={(e) => setTodoTitle(e.target.value)}
             />
           </div>
           <div>
-            <p>0/75</p>
+            <p>{todoContent.length}/75</p>
             <textarea
               cols="30"
               rows="4"
+              maxLength="75"
               placeholder="more info about task"
               value={todoContent}
               onChange={(e) => setTodoContent(e.target.value)}
