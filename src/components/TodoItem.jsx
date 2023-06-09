@@ -1,8 +1,29 @@
 import { useState } from "react";
 import classes from "./TodoItem.module.css";
 
-const TodoItem = ({ title, content, deleteHandler, complete, doneHandler }) => {
+const TodoItem = ({
+  title,
+  content,
+  index,
+  deleteHandler,
+  complete,
+  doneHandler,
+  sendEditedTodo,
+}) => {
   const [editAvailable, setEditAvailable] = useState(false);
+  const [editTitle, setEditTitle] = useState(title);
+  const [editContent, setEditContent] = useState(content);
+
+  const handleEdit = () => {
+    const newTodo = { title: editTitle, content: editContent, index: index };
+    if (editTitle === "" || editContent === "") {
+      setEditAvailable(false);
+      return;
+    }
+    sendEditedTodo(newTodo);
+    setEditAvailable(false);
+  };
+
   return (
     <div className={classes.todo}>
       <div className={classes.buttons}>
@@ -18,14 +39,20 @@ const TodoItem = ({ title, content, deleteHandler, complete, doneHandler }) => {
       ></div>
       {editAvailable && (
         <div className={classes.editfield}>
-          <input type="text" maxLength="30" defaultValue={title} />
+          <input
+            type="text"
+            maxLength="30"
+            defaultValue={title}
+            onChange={(e) => setEditTitle(e.target.value)}
+          />
           <textarea
             cols="30"
             rows="2"
             maxLength="75"
             defaultValue={content}
+            onChange={(e) => setEditContent(e.target.value)}
           ></textarea>
-          <button>save</button>
+          <button onClick={handleEdit}>save</button>
         </div>
       )}
       {!editAvailable && (

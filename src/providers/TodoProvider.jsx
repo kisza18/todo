@@ -4,18 +4,13 @@ const TodoContext = createContext();
 
 const initialTodoList = [
   {
-    title: "todo number one",
-    content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta",
+    title: "shopping list",
+    content: "banana, apple, orange, milk, bread",
     completed: false,
   },
   {
-    title: "todo number two",
-    content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta",
-    completed: true,
-  },
-  {
-    title: "todo number three",
-    content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta",
+    title: "homework",
+    content: "cooking, car wash",
     completed: true,
   },
 ];
@@ -42,6 +37,17 @@ const TodoProvider = ({ children }) => {
     setTodos(newTodos);
   };
 
+  const editTodo = (newTodo) => {
+    const newTodos = [...todos];
+    newTodos.forEach((todo, index) => {
+      if (index === newTodo.index) {
+        todo.title = newTodo.title;
+        todo.content = newTodo.content;
+      }
+    });
+    setTodos(newTodos);
+  };
+
   const deleteAll = () => {
     setTodos([]);
   };
@@ -52,6 +58,7 @@ const TodoProvider = ({ children }) => {
     deleteTodo,
     doneTodo,
     deleteAll,
+    editTodo,
   };
 
   return (
