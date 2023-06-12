@@ -15,7 +15,7 @@ const TodoItem = ({
   const [editContent, setEditContent] = useState(content);
 
   const handleEdit = () => {
-    const newTodo = { title: editTitle, content: editContent, index: index };
+    const newTodo = { title: editTitle, content: editContent, id: index };
     if (editTitle === "" || editContent === "") {
       setEditAvailable(false);
       return;

@@ -31,14 +31,14 @@ const TodoList = () => {
       </div>
       {!filter && (
         <div className={classes.list}>
-          {todos.map((todo, index) => (
+          {todos.map((todo) => (
             <TodoItem
-              deleteHandler={() => deleteTodo(index)}
-              doneHandler={() => doneTodo(index)}
-              key={index}
+              deleteHandler={() => deleteTodo(todo.id)}
+              doneHandler={() => doneTodo(todo.id)}
+              key={todo.id}
               title={todo.title}
               content={todo.content}
-              index={index}
+              index={todo.id}
               complete={todo.completed}
               sendEditedTodo={editTodo}
             />
@@ -49,14 +49,14 @@ const TodoList = () => {
         <div className={classes.list}>
           {todos
             .filter((todo) => todo.completed === true)
-            .map((todo, index) => (
+            .map((todo) => (
               <TodoItem
-                deleteHandler={() => deleteTodo(index)}
-                doneHandler={() => doneTodo(index)}
-                key={index}
+                deleteHandler={() => deleteTodo(todo.id)}
+                doneHandler={() => doneTodo(todo.id)}
+                key={todo.id}
                 title={todo.title}
                 content={todo.content}
-                index={index}
+                index={todo.id}
                 complete={todo.completed}
                 sendEditedTodo={editTodo}
               />

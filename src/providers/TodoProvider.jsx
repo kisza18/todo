@@ -4,11 +4,13 @@ const TodoContext = createContext();
 
 const initialTodoList = [
   {
+    id: 1,
     title: "shopping list",
     content: "banana, apple, orange, milk, bread",
     completed: false,
   },
   {
+    id: 2,
     title: "homework",
     content: "cooking, car wash",
     completed: true,
@@ -23,14 +25,14 @@ const TodoProvider = ({ children }) => {
   };
 
   const deleteTodo = (todoIndex) => {
-    const newTodos = todos.filter((_, index) => index !== todoIndex);
+    const newTodos = todos.filter((todo) => todo.id !== todoIndex);
     setTodos(newTodos);
   };
 
   const doneTodo = (todoIndex) => {
     const newTodos = [...todos];
-    newTodos.forEach((todo, index) => {
-      if (index === todoIndex) {
+    newTodos.forEach((todo) => {
+      if (todo.id === todoIndex) {
         todo.completed = !todo.completed;
       }
     });
@@ -39,8 +41,8 @@ const TodoProvider = ({ children }) => {
 
   const editTodo = (newTodo) => {
     const newTodos = [...todos];
-    newTodos.forEach((todo, index) => {
-      if (index === newTodo.index) {
+    newTodos.forEach((todo) => {
+      if (todo.id === newTodo.id) {
         todo.title = newTodo.title;
         todo.content = newTodo.content;
       }

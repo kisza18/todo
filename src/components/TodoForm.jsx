@@ -19,6 +19,7 @@ const TodoForm = () => {
       title: todoTitle,
       content: todoContent,
       completed: todoComplete,
+      id: Math.random() * 100,
     });
     setTodoTitle("");
     setTodoContent("");
